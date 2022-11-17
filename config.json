@@ -1,0 +1,18 @@
+{
+    "name": "Vinícius Boschi",
+    "movie": "https://api.lorem.space/image/movie?&amp;amp;amp;amp;",
+    "movies": {
+        "infos": [
+            {
+                "title": "The Matrix",
+                "picture": "https://api.lorem.space/image/movie?&amp;amp;amp;amp;",
+                "date": "2019-01-10"
+            },
+            {
+                "title": "The Reloaded",
+                "picture": "https://api.lorem.space/image/movie?&amp;amp;amp;amp;",
+                "date": "2019-01-10"
+            }
+        ]
+    }
+}
