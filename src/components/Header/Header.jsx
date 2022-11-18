@@ -1,6 +1,6 @@
 import { StyledHeader } from "./style"
 
-export default function Header({filterValue, setFilterValue}) {
+export default function Header({ filterValue, setFilterValue }) {
   const searchValue = filterValue
   const setSearchValue = setFilterValue
 

@@ -1,4 +1,3 @@
-import React from "react"
 import { CSSReset } from "../src/Styles/CSSReset"
 
 function MyApp({ Component, pageProps }) {

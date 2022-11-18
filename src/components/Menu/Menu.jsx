@@ -1,16 +1,15 @@
 import { StyledMenu } from "./style"
-// import { config } from "../../config"
 
 export default function Menu({ searchValue, ...props }) {
   const infosMovies = Object.keys(props.movies)
-
+  
   return (
     <>
-      {infosMovies.map((info) => {
-        const movies = props.infos[info]
+      {infosMovies.map((infosMovie) => {
+        const movies = props.movies[infosMovie]
         return (
           <StyledMenu>
-            <div className="content" key={info}>
+            <div className="content" key={infosMovie}>
               <div className="infos">
                 {movies
                   .filter((movie) => {
@@ -21,7 +20,7 @@ export default function Menu({ searchValue, ...props }) {
                   .map((movie) => {
                     return (
                       <div className="card-image">
-                        <img src={movie.picture} alt="" />
+                        <img key={movie.picture} src={movie.picture} alt={movie.title} />
                         <div className="card-body">
                           <span className="name-movie">{movie.title}</span>
                           <p className="date-movie">{movie.date}</p>

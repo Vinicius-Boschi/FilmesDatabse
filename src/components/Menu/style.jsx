@@ -5,21 +5,21 @@ export const StyledMenu = styled.main `
     .content {
         display: flex;
         flex-wrap: wrap;
-        gap: 2rem;
         padding: 3rem;
         margin-top: 2rem;
     }
 
     .infos {
-        position: relative;
         display: flex;
-        flex-direction: column;
-        min-width: 0;
         word-wrap: break-word;
-        background-color: #fff;
+        gap: 2rem;
         background-clip: border-box;
-        border: 1px solid rgba(0,0,0,.125);
         border-radius: 0.25rem;
+    }
+
+    .card-image {
+        border: 1px solid #0000001f;
+        background-color: #FFF;
     }
 
     img {
@@ -30,8 +30,8 @@ export const StyledMenu = styled.main `
     }
 
     .card-body {
-        background-color: #FFF;
         padding: 10px;
+        margin-bottom: 1rem;
     }
 
     .name-movie {
