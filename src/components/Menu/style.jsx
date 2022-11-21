@@ -28,6 +28,17 @@ export const StyledMenu = styled.main `
         border-top-right-radius: .25rem;
     }
 
+    img:hover {
+        opacity: .9;
+        transform: translateY(-10px);
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+    }
+
+    img:not(:hover) {
+        transition: all .5s ease-in-out;
+    }
+
     .card-body {
         padding: 10px;
         margin-bottom: 1rem;
