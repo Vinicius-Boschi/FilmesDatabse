@@ -3,14 +3,13 @@ import styled from "styled-components"
 export const StyledMenu = styled.main `
 
     .content {
-        display: flex;
-        flex-wrap: wrap;
         padding: 3rem;
         margin-top: 2rem;
     }
 
     .infos {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         word-wrap: break-word;
         gap: 2rem;
         background-clip: border-box;
@@ -24,7 +23,7 @@ export const StyledMenu = styled.main `
 
     img {
         width: 100%;
-        height: 300px;
+        height: 350px;
         border-top-left-radius: .25rem;
         border-top-right-radius: .25rem;
     }
@@ -43,5 +42,17 @@ export const StyledMenu = styled.main `
     .date-movie {
         color: #999;
         font-size: .9rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .infos {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1200px) {
+        .infos {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 `
