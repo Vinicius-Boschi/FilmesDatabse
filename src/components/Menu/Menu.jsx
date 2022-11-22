@@ -1,4 +1,5 @@
 import { StyledMenu } from "./style"
+import Link from 'next/link'
 
 export default function Menu({ searchValue, ...props }) {
   const infosMovies = Object.values(props.movies)
@@ -22,11 +23,10 @@ export default function Menu({ searchValue, ...props }) {
               })
               .map((movie) => {
                 return (
-                  <div className="card-image" key={movie.id}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                      alt={movie.title}
-                    />
+                  <div className="card-image" key={movie.id}>   
+                    <Link href={`/details/${movie.id}`} target="_blank">
+                      <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                    </Link>
                     <div className="card-body">
                       <span className="name-movie">{movie.title}</span>
                       <p className="date-movie">{movie.date}</p>

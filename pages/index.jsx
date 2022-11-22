@@ -1,13 +1,13 @@
-import React from "react"
+import { useEffect, useState } from "react"
 import Header from "../src/components/Header/Header"
 import Menu from "../src/components/Menu/Menu"
 
 function HomePage() {
-  const [filterValue, setFilterValue] = React.useState("")
-  const [movies, setMovies] = React.useState({})
+  const [filterValue, setFilterValue] = useState("")
+  const [movies, setMovies] = useState([])
 
-  React.useEffect(() => {
-    const key = "89088c5c3d55c787cf6ce7a00dfc52a0";
+  useEffect(() => {
+    const key = "89088c5c3d55c787cf6ce7a00dfc52a0"
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=pt-BR`)
       .then((response) => {
         return response.json()
