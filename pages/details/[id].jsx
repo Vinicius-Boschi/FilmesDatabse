@@ -11,18 +11,12 @@ export default function Post({ movie }) {
   
   return (
     <StyledDetails>
-      <div
-        className="custom-bg"
-        style={{ backgroundImage: `url(${backroundImage})` }}
-      >
+      <div className="custom-bg" style={{ backgroundImage: `url(${backroundImage})` }}>
         <div className="bg">
           <div className="infos">
             <div className="content">
               <div className="image">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
               </div>
               <div>
                 <section>
@@ -32,7 +26,6 @@ export default function Post({ movie }) {
                       <span>{formatedDate} (BR)</span>
                         <div className="facts-infos">
                         {movie.genres.map((genre, index) => {
-            
                           return (
                             <p key={index}>
                               <span>{genre.name}</span>
