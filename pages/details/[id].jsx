@@ -1,6 +1,18 @@
 import Link from "next/link"
 
-export async function getStaticProps(context) {
+export default function Post({ movie }) {
+
+  return (
+    <div>
+      <h1>Title: { movie.title }</h1>
+      <button>
+        <Link href="/">Voltar ao início</Link>
+      </button>
+    </div>
+  )
+}
+
+export async function getServerSideProps( context ) {
   const { params } = context
   
   const key = "89088c5c3d55c787cf6ce7a00dfc52a0"
@@ -12,28 +24,4 @@ export async function getStaticProps(context) {
       movie
     }
   }
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { 
-        params: { 
-          id: '436270' 
-        } 
-      }, 
-    ],
-    fallback: false
-  }
-}
-
-export default function Infos({ movie }) {
-  return (
-    <>
-      <span>{ movie.title }</span>
-      <h2>
-        <Link href="/">Back to home</Link>
-      </h2>
-    </>
-  )
 }
