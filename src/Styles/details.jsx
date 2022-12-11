@@ -4,7 +4,7 @@ export const StyledDetails = styled.div`
   .custom-bg {
     background-size: cover;
     background-repeat: no-repeat;
-    color: #fff;
+    color: #FFF;
 
     img {
       width: 280px;

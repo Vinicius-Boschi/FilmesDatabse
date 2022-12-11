@@ -1,7 +1,9 @@
-import Cast from "./cast/cast"
-import { StyledDetails } from "./style"
+import { StyledCast } from "../../src/Styles/cast"
+import { StyledDetails } from "../../src/Styles/details"
+import Glider from "react-glider"
+import "glider-js/glider.min.css"
 
-export default function Post({ movie }) {
+export default function Post({ movie, castMovie }) {
   const backroundImage = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
   const date = new Date(movie.release_date)
   const formatedDate = new Intl.DateTimeFormat("pt-BR").format(date)
@@ -13,7 +15,10 @@ export default function Post({ movie }) {
   return (
     <>
       <StyledDetails>
-        <div className="custom-bg" style={{ backgroundImage: `url(${backroundImage})` }}>
+        <div
+          className="custom-bg"
+          style={{ backgroundImage: `url(${backroundImage})` }}
+        >
           <div className="bg">
             <div className="infos">
               <div className="content">
@@ -48,7 +53,7 @@ export default function Post({ movie }) {
                               (company, index) => {
                                 return (
                                   <p key={index}>
-                                    <img src={`https://image.tmdb.org/t/p/w500${company.logo_path}`} alt={company.name}/>
+                                    {company.name} | {company.origin_country}
                                   </p>
                                 )
                               }
@@ -64,7 +69,29 @@ export default function Post({ movie }) {
           </div>
         </div>
       </StyledDetails>
-      <Cast />
+
+      <Glider className="glider-container" draggable>
+        <StyledCast>
+          <div className="content">
+            <h1 className="title">Elenco Principal</h1>
+            <ul className="list">
+              {castMovie.cast.map((cast, index) => {
+                return (
+                  <li key={index}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
+                    />
+                    <div className="infos-characters">
+                      <p className="name">{cast.name}</p>
+                      <p className="character">{cast.character}</p>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </StyledCast>
+      </Glider>
     </>
   )
 }
@@ -73,14 +100,21 @@ export async function getServerSideProps(context) {
   const { params } = context
 
   const key = "89088c5c3d55c787cf6ce7a00dfc52a0"
+
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id}?api_key=${key}&language=pt-BR`
   )
+  const cast = await fetch(
+    `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${key}&language=pt-BR`
+  )
+
   const movie = await data.json()
+  const castMovie = await cast.json()
 
   return {
     props: {
-      movie
+      movie,
+      castMovie,
     }
   }
 }
